@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CardsContainerComponent } from "../cards-container/cards-container.component";
-import { FiltersContainerComponent } from "../filters-container/filters-container.component";
+import { CardsContainerComponent } from "../../shared/components/cards-container/cards-container.component";
+import { FiltersContainerComponent } from '../../shared/components/filters-container/filters-container.component';
 
 @Component({
   selector: 'app-home',
