@@ -1,0 +1,129 @@
+<div class="bg-primary p-4 rounded-lg shadow-lg max-w-xs w-full mx-auto">
+  <!-- Imagen del Pokémon -->
+  <div class="relative mb-4">
+    <img
+      [src]="card?.images?.small"
+      alt="Pokémon Card"
+      class="w-full h-full max-h-60 object-contain"
+    />
+  </div>
+
+  <!-- Nombre del Pokémon -->
+  <div class="mb-2 text-center">
+    <h2 class="font-bold text-2xl text-gray-800">{{ card?.name }}</h2>
+  </div>
+
+  <!-- HP y atributos -->
+  <div class="flex items-center justify-between mb-4">
+    <span class="font-bold text-lg">HP: {{ card?.hp }}</span>
+    <span
+      class="bg-gray-800 text-yellow-500 px-2 py-1 rounded-full text-sm font-medium"
+    >
+      <!-- @if (card.types?.length > 0) {
+      {{ card?.types[0] || "Ningún tipo" }}
+      } -->
+      XD
+    </span>
+  </div>
+
+  <!-- Evoluciona de... -->
+  <div class="mb-4 text-sm text-center text-gray-600">
+    Evoluciona de:
+    <span class="font-medium ml-1 text-gray-800">{{
+      card?.evolvesFrom || "-"
+    }}</span>
+  </div>
+
+  <!-- Sección de ataque -->
+  <div class="mb-6">
+    <h3 class="font-semibold text-xl text-gray-800 mb-3">Ataques</h3>
+    <div class="space-y-4">
+      <div
+        *ngFor="let attack of card?.attacks"
+        class="bg-gray-200 p-3 rounded shadow-sm border border-yellow-500"
+      >
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-bold text-base">{{ attack?.name }}</span>
+          <span
+            class="bg-yellow-500 text-black px-2 py-1 rounded text-sm font-medium"
+          >
+            {{ attack?.convertedEnergyCost || "N/A" }}
+          </span>
+        </div>
+        <div class="flex flex-col text-sm">
+          <span class="text-green-600">Daño: {{ attack?.damage }}</span>
+          <span class="text-gray-600">{{ attack?.text }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de débil a... y resistencia -->
+  <div class="flex flex-wrap justify-between gap-2 mb-4">
+    <div
+      class="flex flex-col items-center bg-gray-200 p-2 rounded shadow-sm border border-yellow-500 w-full sm:w-1/2 md:w-1/3"
+    >
+      <h4 class="text-sm font-semibold text-gray-800">Débil a:</h4>
+      <span
+        *ngFor="let weakness of card?.weaknesses"
+        class="bg-red-500 text-white px-2 py-1 rounded text-xs mt-1"
+      >
+        {{ weakness?.type }} > {{ weakness?.value }}
+      </span>
+    </div>
+
+    <div
+      class="flex flex-col items-center bg-gray-200 p-2 rounded shadow-sm border border-yellow-500 w-full sm:w-1/2 md:w-1/3"
+    >
+      <h4 class="text-sm font-semibold text-gray-800">Resistencia:</h4>
+      <span
+        *ngFor="let resistance of card?.resistances"
+        class="bg-blue-500 text-white px-2 py-1 rounded text-xs mt-1"
+      >
+        {{ resistance?.type }} > {{ resistance?.value }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Costo de retroceso -->
+  <div class="mb-4 text-center text-sm text-gray-600">
+    Costo de retroceso:
+    <span class="font-medium text-gray-800">
+      <!-- {{ card?.retreatCost.join(", ") || "-" }} -->
+        ****
+    </span>
+  </div>
+
+  <!-- Información del Set -->
+  <div class="mb-4">
+    <h3 class="font-semibold text-lg text-gray-800 mb-1">Set</h3>
+    <div class="text-sm text-center text-gray-600">
+      <p>[{{ card?.set?.id || "" }}] {{ card?.set?.name || "---" }}</p>
+      <p class="mt-1">Serie: {{ card?.set?.series || "---" }}</p>
+      <p class="mt-1">
+        Colección: {{ card?.set?.printedTotal || "---" }} de
+        {{ card?.set?.total || "---" }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Otros detalles -->
+  <div class="text-sm text-gray-600">
+    <p class="mb-2">
+      <span class="font-medium text-gray-800 mr-1">Artista:</span>
+      {{ card?.artist || "---" }}
+    </p>
+    <p class="mb-2">
+      <span class="font-medium text-gray-800 mr-1">Raridad:</span>
+      {{ card?.rarity || "---" }}
+    </p>
+    <p class="mb-2">
+      <span class="font-medium text-gray-800 mr-1">Fecha:</span>
+      {{ card?.set?.releaseDate || "---" }}
+    </p>
+    <p class="mb-2">
+      <span class="font-medium text-gray-800 mr-1">PV:</span>
+      {{ card?.flavorText || "---" }}
+    </p>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 .app-main-content {
-  padding: 1rem;
   background-color: #bec79e;
   width: 100%;
   height: 100%;
@@ -10,7 +9,8 @@
 html,
 body {
   height: 100%;
-  letter-spacing: 0.35em;
+  min-height: fit-content;
+  letter-spacing: 0.18em;
 }
 
 @font-face {
