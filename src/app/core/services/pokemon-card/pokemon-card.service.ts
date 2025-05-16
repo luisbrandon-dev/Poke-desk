@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 import { HttpService } from '../http/http.service';
 import { PokemonCardEndpoints } from '../../endpoints/pokemon-card/pokemon-card.endpoints';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -10,19 +11,19 @@ export class PokemonCardService {
     this.httpService = httpService;
   }
 
-  async getAllCards() {
+  getAllCards(): Observable<any> {
     return this.httpService.get(PokemonCardEndpoints.ALL_CARDS);
   }
 
-  async getAllTypes() {
-    return PokemonTCG.getTypes();
+  getAllTypes(): Observable<any> {
+    return this.httpService.get(PokemonCardEndpoints.ALL_TYPES);
   }
 
-  async getAllSets() {
-    return PokemonTCG.getAllSets();
+  getAllSets() {
+    return this.httpService.get(PokemonCardEndpoints.ALL_SETS);
   }
 
-  async getAllRarities() {
-    return PokemonTCG.getRarities();
+  getAllRarities() {
+    return this.httpService.get(PokemonCardEndpoints.ALL_RARITIES);
   }
 }
