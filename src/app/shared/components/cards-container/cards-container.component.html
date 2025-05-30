@@ -1,4 +1,4 @@
-<div class="cards-container h-full max-h-screen overflow-y-auto p-3">
+<div class="cards-container grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 md:gap-4 h-full max-h-screen overflow-y-auto p-3">
   @if (cards.length > 0) {
   <app-card *ngFor="let card of cards" [card]="card"></app-card>
   } @else {
